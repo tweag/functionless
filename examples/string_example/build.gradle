@@ -1,0 +1,21 @@
+plugins {
+  id 'com.github.johnrengelman.shadow' version '1.2.4'
+}
+
+apply plugin: 'java'
+
+repositories { mavenCentral() }
+
+tasks.withType(JavaCompile) {
+//options.compilerArgs += '-Xlint:~unchecked'
+}
+
+dependencies {
+  compile 'com.amazonaws:aws-lambda-java-core:1.1.0'
+}
+
+jar {
+  manifest {
+    attributes "Main-Class": "io.tweag.functionless.Entrypoint"
+  }
+}
