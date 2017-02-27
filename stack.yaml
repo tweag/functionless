@@ -2,7 +2,7 @@ resolver: lts-7.14
 compiler: ghc-8.0.2
 
 packages:
-- .
+- examples/string_example
 - location:
     git: https://github.com/tweag/jarify.git
     commit: 60d2c937a33008bc347aa8e608fb43034f5cb71b
