@@ -3,7 +3,10 @@ compiler: ghc-8.0.2
 
 packages:
 - .
-- location: ../jarify
+- location:
+    git: https://github.com/tweag/jarify.git
+    commit: 60d2c937a33008bc347aa8e608fb43034f5cb71b
+  extra-dep: true
 
 extra-deps:
 - jni-0.2.3
