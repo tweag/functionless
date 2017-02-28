@@ -14,14 +14,14 @@ public class Entrypoint implements RequestHandler<String, String> {
       HaskellLibraryLoader.loadLibraries();
       haskellInitialized = true;
     }
-    return foo(input, context);
+    return stringExample(input, context);
   }
 
-    public static void main(String[] args) {
-      HaskellLibraryLoader.loadLibraries();
-      fooNoContext("hello");
-    }
+  public static void main(String[] args) {
+    HaskellLibraryLoader.loadLibraries();
+    stringExampleNoContext("Hello");
+  }
 
-  private static native String foo(String input, Context context);
-  private static native String fooNoContext(String input);
+  private static native String stringExample(String input, Context context);
+  private static native String stringExampleNoContext(String input);
 }
