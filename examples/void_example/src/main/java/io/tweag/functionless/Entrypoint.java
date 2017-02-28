@@ -19,8 +19,8 @@ public class Entrypoint implements RequestHandler<Void, Void> {
   }
 
   public static void main(String[] args) {
-    HaskellLibraryLoader.loadLibraries();
-    voidExample();
+    Entrypoint ep = new Entrypoint();
+    ep.handleRequest(null, null);
   }
 
   private static native void voidExample();

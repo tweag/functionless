@@ -14,5 +14,5 @@ voidExample
   :: J ('Class "java.lang.Void")
   -> IO (J ('Class "java.lang.Void"))
 voidExample v = do
-    print "hello"
+    print "Hello there"
     return v

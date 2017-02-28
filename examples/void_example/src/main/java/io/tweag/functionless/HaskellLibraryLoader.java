@@ -16,6 +16,8 @@ import java.util.zip.*;
  */
 public class HaskellLibraryLoader {
 
+    /* Note: this method can only be called once, it will fail at its second
+     * execution */
     public static void loadLibraries() {
       try {
         InputStream in =
