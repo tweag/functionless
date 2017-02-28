@@ -1,3 +1,8 @@
+# Get rid of the artifacts from jarify
+*.jar
+
+
+# Haskell gitignore
 dist
 cabal-dev
 *.o
