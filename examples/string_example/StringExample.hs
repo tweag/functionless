@@ -21,4 +21,5 @@ stringExample
 stringExample input _ = do
     txt <- reify input
     Text.putStrLn txt
-    reflect txt
+    let newText = Text.concat [txt, Text.pack ". Hello to you too god sir"]
+    reflect newText
