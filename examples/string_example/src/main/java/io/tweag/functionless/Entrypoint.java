@@ -18,10 +18,9 @@ public class Entrypoint implements RequestHandler<String, String> {
   }
 
   public static void main(String[] args) {
-    HaskellLibraryLoader.loadLibraries();
-    stringExampleNoContext("Hello");
+    Entrypoint ep = new Entrypoint();
+    ep.handleRequest("Dummy log", null);
   }
 
   private static native String stringExample(String input, Context context);
-  private static native String stringExampleNoContext(String input);
 }

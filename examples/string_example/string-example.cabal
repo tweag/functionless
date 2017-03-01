@@ -16,6 +16,8 @@ library
     jvm,
     text
   default-language: Haskell2010
+  c-sources: cbits/jni_glue.c
+  ghc-options: -Wall
 
 executable string-example-exe
   main-is: Main.hs
@@ -23,5 +25,5 @@ executable string-example-exe
     base
     , string-example
   default-language: Haskell2010
-  ghc-options: -dynamic -threaded
+  ghc-options: -dynamic -threaded -Wall
   ld-options: -pie
