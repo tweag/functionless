@@ -6,7 +6,7 @@ module VoidExample where
 
 import Language.Java (J(..), JType(..), reify, reflect)
 
-foreign export ccall "Java_io_tweag_functionless_Entrypoint_voidExample" voidExample
+foreign export ccall "void_example" voidExample
   :: J ('Class "java.lang.Void")
   -> IO (J ('Class "java.lang.Void"))
 
