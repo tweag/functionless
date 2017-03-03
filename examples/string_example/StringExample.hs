@@ -6,8 +6,7 @@ module StringExample where
 
 import qualified Data.Text as Text
 import qualified Data.Text.IO as Text
-import Language.Java (J(..), JType(..), JObject, reify, reflect)
-import Foreign.JNI
+import Language.Java (J(..), JType(..), reify, reflect)
 
 foreign export ccall "string_example" stringExample
   :: J ('Class "java.lang.String")

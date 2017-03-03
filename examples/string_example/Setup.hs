@@ -19,4 +19,3 @@ buildJavaSource verbosity = do
     -- We want a shadowjar for AWS just to be sure that we have the appropriate
     -- dependencies.
     rawSystemExit verbosity "gradle" ["shadowjar"]
-    error
