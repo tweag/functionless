@@ -6,10 +6,6 @@ apply plugin: 'java'
 
 repositories { mavenCentral() }
 
-tasks.withType(JavaCompile) {
-//options.compilerArgs += '-Xlint:~unchecked'
-}
-
 dependencies {
   compile 'com.amazonaws:aws-lambda-java-core:1.1.0'
 }
