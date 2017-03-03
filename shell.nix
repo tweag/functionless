@@ -4,10 +4,15 @@ with pkgs;
 
 let
   openjdk = openjdk8;
+  jvmlibdir =
+    if stdenv.isLinux
+    then "${openjdk}/lib/openjdk/jre/lib/amd64/server"
+    else "${openjdk}/jre/lib/server";
 in
 haskell.lib.buildStackProject {
-  name = "jarify";
+  name = "functionless";
   buildInputs = [ autoconf automake git gradle openjdk which zlib ];
   inherit ghc;
+  extraArgs = ["--extra-lib-dirs=${jvmlibdir}"];
   LANG = "en_US.utf8";
 }
