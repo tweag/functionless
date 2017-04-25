@@ -1,29 +1,28 @@
 -- | Sample Functionless app.
 
 {-# LANGUAGE DataKinds #-}
+{-# LANGUAGE OverloadedStrings #-}
 
 module StringExample where
 
-import qualified Data.Text as Text
-import qualified Data.Text.IO as Text
+import qualified Data.ByteString as BS
 import Language.Java (J(..), JNIEnv, JClass, JType(..), reify, reflect)
 import Foreign.Ptr
 
-foreign export ccall "Java_io_tweag_functionless_Entrypoint_stringExample" stringExample
+foreign export ccall "Java_io_tweag_functionless_Entrypoint_nativeHandler" stringExample
   :: Ptr JNIEnv
   -> JClass
-  -> J ('Class "java.lang.String")
+  -> J ('Array ('Prim "byte"))
   -> J ('Class "com.amazonaws.services.lambda.runtime.Context")
-  -> IO (J ('Class "java.lang.String"))
+  -> IO (J ('Array ('Prim "byte")))
 
 stringExample
   :: Ptr JNIEnv
   -> JClass
-  -> J ('Class "java.lang.String")
+  -> J ('Array ('Prim "byte"))
   -> J ('Class "com.amazonaws.services.lambda.runtime.Context")
-  -> IO (J ('Class "java.lang.String"))
+  -> IO (J ('Array ('Prim "byte")))
 stringExample _ _ input _ = do
     txt <- reify input
-    Text.putStrLn txt
-    let newText = Text.concat [txt, Text.pack ". Hello to you too god sir"]
-    reflect newText
+    BS.putStrLn txt
+    reflect (BS.concat [txt, ". Hello to you too god sir"])

@@ -11,10 +11,10 @@ library
   exposed-modules: StringExample
   build-depends:
     base >=4.7 && <5,
+    bytestring,
     jarify,
     jni,
-    jvm,
-    text
+    jvm
   default-language: Haskell2010
   ghc-options: -Wall
 
