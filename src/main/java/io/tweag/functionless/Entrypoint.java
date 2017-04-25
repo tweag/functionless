@@ -1,5 +1,6 @@
 package io.tweag.functionless;
 
+import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.io.IOException;
 import java.io.OutputStream;
@@ -27,7 +28,13 @@ public class Entrypoint implements RequestStreamHandler {
 		outputStream.write(nativeHandler(input, context));
 	}
 
-	public static void main(String[] args) {
+	// TODO:: use stdin and stdout as streams here.
+	public static void main(String[] args) throws IOException {
+		Entrypoint ep = new Entrypoint();
+		ByteArrayInputStream in = new ByteArrayInputStream("Dummy log".getBytes());
+		// Dummy OutputStream that does absolutely nothing.
+		OutputStream out = new OutputStream() { @Override public void write(int b) { } };
+		ep.handleRequest(in, out, null);
 	}
 
 	private static native byte[] nativeHandler(byte[] input, Context context);
