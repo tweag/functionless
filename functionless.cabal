@@ -1,0 +1,35 @@
+name:                   functionless
+version:                1.0
+license:                BSD3
+author:                 Tweag I/O
+maintainer:             felix.raimundo@tweag.io
+copyright:              2017 EURL Tweag
+build-type:             Custom
+cabal-version:          >=1.10
+extra-source-files:
+  src/main/java/io/tweag/functionless/HaskellLibraryLoader.java
+  src/main/java/io/tweag/functionless/Entrypoint.java
+data-files:
+  build/libs/functionless-all.jar
+
+library
+  hs-source-dirs:       src
+  exposed-modules:      Functionless.Utils
+  build-depends:
+                          base >=4.7 && <5
+                        , bytestring
+                        , jarify
+                        , jni
+                        , jvm
+                        , template-haskell >= 2.10
+  default-language:     Haskell2010
+  ghc-options:          -Wall
+
+executable functionless
+  main-is:              Functionless.hs
+  build-depends:
+                          base >=4.7 && <5
+                        , filepath >= 1.4
+                        , process >= 1.2
+  default-language:     Haskell2010
+  ghc-options:          -Wall
