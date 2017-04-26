@@ -4,6 +4,7 @@
 module Functionless.Utils (makeAwsLambdaHandler) where
 
 import qualified Data.ByteString as BS
+import qualified Language.Haskell.TH.Lib as TH
 import Language.Java (J(..), JNIEnv, JClass, JType(..), reify, reflect)
 import Foreign.Ptr
 
