@@ -10,9 +10,10 @@ main = do
     argv <- getArgs
     dir <- getDataDir
     case argv of
-      [package] -> callProcess
-                     "jarify"
-	             [ "--base-jar"
-	             , dir </> "build/libs/functionless-all.jar"
-	             , package ]
+      [package] ->
+        callProcess
+          "jarify"
+          [ "--base-jar"
+          , dir </> "build/libs/functionless-all.jar"
+          , package ]
       _ -> fail "Usage: functionless <package>"
