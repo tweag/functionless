@@ -1,35 +1,48 @@
-name:                   functionless
-version:                1.0
-license:                BSD3
-author:                 Tweag I/O
-maintainer:             felix.raimundo@tweag.io
-copyright:              2017 EURL Tweag
-build-type:             Custom
-cabal-version:          >=1.10
+name: functionless
+version: 1.0
+copyright: (c) 2017 EURL Tweag
+license: BSD3
+author: Tweag I/O
+maintainer: felix.raimundo@tweag.io
+build-type: Custom
+cabal-version: >=1.10
 extra-source-files:
   src/main/java/io/tweag/functionless/HaskellLibraryLoader.java
   src/main/java/io/tweag/functionless/Entrypoint.java
+  build.gradle
 data-files:
   build/libs/functionless-all.jar
 
+custom-setup
+  setup-depends:
+    base >= 4.7 && <5,
+    Cabal >= 1.24,
+    directory >= 1.3,
+    filepath >= 1.4
+
 library
-  hs-source-dirs:       src
-  exposed-modules:      Functionless.Utils
+  hs-source-dirs: src
+  exposed-modules: Functionless.Utils
   build-depends:
-                          base >=4.7 && <5
-                        , bytestring
-                        , jarify
-                        , jni
-                        , jvm
-                        , template-haskell >= 2.10
-  default-language:     Haskell2010
-  ghc-options:          -Wall
+    base >= 4.7 && <5,
+    bytestring >= 0.9,
+    jarify,
+    jni >= 0.3.1,
+    jvm >= 0.1.2,
+    template-haskell >= 2.10
+  default-language: Haskell2010
+  ghc-options: -Wall
 
 executable functionless
-  main-is:              Functionless.hs
+  main-is: app/Main.hs
   build-depends:
-                          base >=4.7 && <5
-                        , filepath >= 1.4
-                        , process >= 1.2
-  default-language:     Haskell2010
-  ghc-options:          -Wall
+    base >= 4.7 && <5,
+    bytestring >= 0.9,
+    filepath >= 1.4,
+    jarify,
+    jni >= 0.3.1,
+    jvm >= 0.1.2,
+    process >= 1.2,
+    template-haskell >= 2.10
+  default-language: Haskell2010
+  ghc-options: -Wall
