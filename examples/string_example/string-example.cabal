@@ -4,7 +4,7 @@ license:             BSD3
 author:              Tweag I/O
 maintainer:          felix.raimundo@tweag.io
 copyright:           2017 EURL Tweag
-build-type:          Custom
+build-type:          Simple
 cabal-version:       >=1.10
 
 library
