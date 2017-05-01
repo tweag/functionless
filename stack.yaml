@@ -1,4 +1,4 @@
-resolver: lts-7.14
+resolver: lts-8.12
 compiler: ghc-8.0.2
 
 packages:
@@ -8,11 +8,6 @@ packages:
     git: https://github.com/tweag/jarify.git
     commit: 60d2c937a33008bc347aa8e608fb43034f5cb71b
   extra-dep: true
-
-extra-deps:
-- jni-0.2.3
-- jvm-0.1.2
-- thread-local-storage-0.1.1
 
 nix:
   shell-file: shell.nix
