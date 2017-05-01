@@ -21,8 +21,8 @@ custom-setup
     filepath >= 1.4
 
 library
-  hs-source-dirs: src
-  exposed-modules: Functionless.Utils
+  hs-source-dirs: src/main/haskell
+  exposed-modules: Functionless.TH
   build-depends:
     base >= 4.7 && <5,
     bytestring >= 0.9,

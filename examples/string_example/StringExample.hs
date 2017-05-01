@@ -8,7 +8,7 @@
 module StringExample where
 
 import qualified Data.ByteString as BS
-import Functionless.Utils (makeAwsLambdaHandler)
+import Functionless.TH (makeAwsLambdaHandler)
 
 -- | Application specific code.
 --   The only part the user actually wants to write.
