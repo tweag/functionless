@@ -9,5 +9,8 @@ packages:
     commit: 60d2c937a33008bc347aa8e608fb43034f5cb71b
   extra-dep: true
 
+extra-deps:
+- jni-0.3.1
+
 nix:
   shell-file: shell.nix

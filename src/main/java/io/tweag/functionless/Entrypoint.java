@@ -21,7 +21,7 @@ public class Entrypoint implements RequestStreamHandler {
         // Empty the InputStream in order to hide the Stream to the native code.
         byte[] input = IOUtils.toByteArray(inputStream);
 
-        outputStream.write(nativeHandler(input, context));
+        outputStream.write(nativeHandler(context, input));
     }
 
     public static void main(String[] args) throws IOException {
@@ -29,5 +29,5 @@ public class Entrypoint implements RequestStreamHandler {
 	ep.handleRequest(System.in, System.out, null);
     }
 
-    private static native byte[] nativeHandler(byte[] input, Context context);
+    private static native byte[] nativeHandler(Context context, byte[] input);
 }
