@@ -2,16 +2,13 @@
 {-# LANGUAGE ForeignFunctionInterface #-}
 {-# LANGUAGE TemplateHaskell #-}
 
-module Functionless.Utils (makeAwsLambdaHandler) where
+module Functionless.TH (makeAwsLambdaHandler) where
 
-import qualified Data.ByteString as BS
 import Control.Monad ((>=>))
-import Foreign.JNI (deleteGlobalRef, newLocalRef)
+import Foreign.JNI (newLocalRef)
 import Foreign.JNI.Types (objectFromPtr, unsafeObjectToPtr)
 import Foreign.Ptr (Ptr)
-import Foreign.Storable (peek)
 import qualified Language.Haskell.TH as TH
-import qualified Language.Haskell.TH.Syntax as THS
 import Language.Java (J(..), JNIEnv, JClass, JType(..), reify, reflect)
 
 newtype AwsLambdaContext = AwsLambdaContext (J ('Class "com.amazonaws.services.lambda.runtime.Context"))
